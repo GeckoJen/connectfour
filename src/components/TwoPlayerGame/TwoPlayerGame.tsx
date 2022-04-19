@@ -159,6 +159,7 @@ function TwoPlayerGameboard({ gameType }: { gameType: string[]  }) {
           );
         })}
       </div>
+      <h3>Two player game</h3>
       {redTurn && !winner && <h2>Next player: red</h2>}
       {!redTurn && !winner && <h2>Next player: yellow</h2>}
       {winner && <h2 className="winnerH2">{winner} wins!</h2>}

@@ -228,6 +228,7 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
           );
         })}
       </div>
+      <h3>Single player game</h3>
       {redTurn && !winner && <h2>Your turn</h2>}
       {!redTurn && !winner && <h2>Computer's turn</h2>}
       {winner && <h2 className="winnerH2">{winner}</h2>}
