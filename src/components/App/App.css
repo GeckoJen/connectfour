@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
 
 .App {
   text-align: center;
   background-image: radial-gradient(rgb(238, 50, 245), rgb(170, 194, 255));
   min-height: 100vh;
-  font-family: 'Londrina Solid', cursive;
+  font-family: "Londrina Solid", cursive;
 }
 
 .newGame {
@@ -14,86 +14,82 @@
   margin: 0.5rem;
 }
 
-
-
-
-
 .live {
-  background-color:rgb(238, 50, 245);
+  background-color: rgb(238, 50, 245);
   padding: 0.7rem;
   border-radius: 15px;
-   font-family: 'Londrina Solid', cursive;
-   font-size: 1.2rem;
-   margin: 0.5rem;
+  font-family: "Londrina Solid", cursive;
+  font-size: 1.2rem;
+  margin: 0.5rem;
 }
 
 .greyedOut {
   background-color: rgba(238, 50, 245, 0.5);
   padding: 0.5rem;
   border-radius: 15px;
-   font-family: 'Londrina Solid', cursive;
-   font-size: 1rem;
-   margin: 0.5rem;
-   color:rgba(0, 0, 0, 0.5)
+  font-family: "Londrina Solid", cursive;
+  font-size: 1rem;
+  margin: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .App h1 {
   margin-block-start: 0;
-   margin-block-end: 0;
+  margin-block-end: 0;
   padding: 1rem;
   font-size: 3.5rem;
 }
 
 .App h2 {
- font-size: 2rem;
- font-weight: 300;
-   margin: 0.5rem;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0.5rem;
 }
 
 .winnerH2 {
   text-transform: capitalize;
-
 }
 
-.boardRedTurn, .boardYellowTurn, .boardComputerTurn {
-display: flex;
-flex-direction: column-reverse;
-justify-content: center;
-align-items: center;
-background-color: rgb(0, 132, 255);
-width: 33rem;
-margin: 2rem auto;
-padding: 1rem;
-border: 5px solid rgb(0, 70, 135);
-border-radius: 15px;
+.boardRedTurn,
+.boardYellowTurn,
+.boardComputerTurn {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 132, 255);
+  width: 33rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 5px solid rgb(0, 70, 135);
+  border-radius: 15px;
 }
 
 .boardRedTurn:hover {
-  cursor:url("../../../images/redcursor.png"),auto;
+  cursor: url("../../../images/redcursor.png"), auto;
 }
 
 .boardYellowTurn:hover {
- cursor:url("../../../images/yellowcursor.png"),auto;
+  cursor: url("../../../images/yellowcursor.png"), auto;
 }
 
 .boardComputerTurn:hover {
- cursor:url("../../../images/thinkingcursor.png"),auto;;
+  cursor: url("../../../images/thinkingcursor.png"), auto;
 }
 
 .newGameButton {
-  background-color:rgb(238, 50, 245);
+  background-color: rgb(238, 50, 245);
   padding: 0.5rem;
   border-radius: 15px;
-   font-family: 'Londrina Solid', cursive;
-   font-size: 1.2rem;
-   margin: 1rem;
+  font-family: "Londrina Solid", cursive;
+  font-size: 1.2rem;
+  margin: 1rem;
 }
 
 .row {
-display: flex;
-justify-content: center;
-align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .O {
@@ -102,7 +98,7 @@ align-items: center;
   height: 3rem;
   background-color: rgb(90, 90, 90);
   margin: 0.5rem;
-  border: 3px groove rgb(94, 94, 255)
+  border: 3px groove rgb(94, 94, 255);
 }
 
 .red {
@@ -111,7 +107,7 @@ align-items: center;
   height: 3rem;
   background-color: red;
   margin: 0.5rem;
-  border: 3px groove rgb(94, 94, 255)
+  border: 3px groove rgb(94, 94, 255);
 }
 
 .yellow {
@@ -120,11 +116,11 @@ align-items: center;
   height: 3rem;
   background-color: yellow;
   margin: 0.5rem;
-  border: 3px groove rgb(94, 94, 255)
+  border: 3px groove rgb(94, 94, 255);
 }
 
 .yellowwin {
-    border-radius: 50%;
+  border-radius: 50%;
   width: 3rem;
   height: 3rem;
   background-color: yellow;
@@ -133,10 +129,47 @@ align-items: center;
 }
 
 .redwin {
-    border-radius: 50%;
+  border-radius: 50%;
   width: 3rem;
   height: 3rem;
   background-color: red;
   margin: 0.5rem;
   border: 3px solid white;
+}
+
+@media screen and (max-width: 600px) {
+  .boardRedTurn,
+  .boardYellowTurn,
+  .boardComputerTurn {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .O,
+  .red,
+  .yellow,
+  .yellowwin,
+  .redwin {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+ .boardRedTurn,
+  .boardYellowTurn,
+  .boardComputerTurn {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .O,
+  .red,
+  .yellow,
+  .yellowwin,
+  .redwin {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
 }
