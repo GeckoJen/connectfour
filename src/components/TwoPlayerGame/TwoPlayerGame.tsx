@@ -139,7 +139,7 @@ function TwoPlayerGameboard({ gameType }: { gameType: string[]  }) {
   return (
     <div>
       {/* <h3>This is a {gameType} game</h3> */}
-      <div className="board">
+      <div className={redTurn ? "boardRedTurn" : "boardYellowTurn"}>
         {gameFrame.map((element, index) => {
           return (
             <div className="row" id={String(index)} key={index}>
