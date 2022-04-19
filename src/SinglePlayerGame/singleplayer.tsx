@@ -14,7 +14,8 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
   const [redTurn, setRedTurn] = useState<boolean>(true);
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [winner, setWinner] = useState<string>("");
-  const [checked, setChecked] = useState<boolean>(false)
+  const [checked, setChecked] = useState<boolean>(false);
+  const [mostRecentRedColumn, setMostRecentRedColumn] = useState<number>(0)
 
   function insertCoin(event: any) {
     if (!gameOver && redTurn) {
@@ -32,6 +33,7 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
             ...gameFrame.slice(i + 1),
           ]);
           setRedTurn(false);
+          setMostRecentRedColumn(columnIndex);
         }
       }
       if (gameFrame[5][columnIndex] !== "O") {
@@ -40,10 +42,26 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
     }
   }
 
-  function computerTurn() {
+  function computerTurn(randomNumber: number) {
+  
+
     if (!gameOver && !redTurn) {
-      console.log("it's my turn now");
-      let columnIndex: number = Math.floor(Math.random() * 7);
+
+       let randomTurn: number = Math.floor(Math.random() * 4);
+       let columnIndex: number;
+      if (randomTurn === 0) {
+        columnIndex = Math.floor(Math.random() * 7);
+      }
+
+      else {
+        if (randomNumber === 0) {
+          columnIndex = mostRecentRedColumn - 1;
+        } else if (randomNumber === 1) {
+          columnIndex = mostRecentRedColumn
+        } else {
+          columnIndex = mostRecentRedColumn + 1
+        }
+      }
       const colour: string = "yellow";
       for (let i = 5; i >= 0; i--) {
         if (gameFrame[i][columnIndex] === "O") {
@@ -58,8 +76,11 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
           ]);
         }
       }
+      
+     
       if (gameFrame[5][columnIndex] !== "O") {
-        alert("That column is full. Pick another.");
+        let newRandomNumber: number = Math.floor(Math.random() * 3); 
+        computerTurn(newRandomNumber);
       }
       setRedTurn(true);
     }
@@ -69,8 +90,9 @@ function SinglePlayerGameboard({ gameType }: { gameType: string[] }) {
       checkIfWon();
    }, [redTurn]);
   
-     useEffect(() => {
-       setTimeout(computerTurn, 1000);
+  useEffect(() => {
+       let randomNumber: number = Math.floor(Math.random() * 3);
+       setTimeout(()=>computerTurn(randomNumber), 1000);
      }, [checked]);
 
   function checkIfWon() {
